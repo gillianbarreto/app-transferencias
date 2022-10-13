@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <app-header></app-header>
+
+  <ng-container *ngIf="showContactForm">
+    <h2 class="my-3 py-3 text-center">Nuevo Destinatario</h2>
+    <app-contact-form (success)="showList()"></app-contact-form>
+  </ng-container>
+
+  <ng-container *ngIf="!showContactForm">
+    <h2 class="my-2 py-2 text-center">Mis Destinatarios</h2>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <span id="addContact" class="badge bg-primary rounded-pill p-2" (click)="addNewContact()">
+        <i class="bi bi-person-plus-fill"></i>
+      </span>
+    </div>
+
+    <app-contacts-list></app-contacts-list>
+  </ng-container>
+
+</div>

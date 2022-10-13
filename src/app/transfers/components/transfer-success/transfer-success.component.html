@@ -1,0 +1,32 @@
+<div class="w-75 w-xs-100 p-3 m-auto">
+
+    <div class="col-md-8 shadow row g-3 shadow p-md-4 m-auto">
+
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">
+            <i class="bi bi-check2-circle"></i>
+            La Transferencia se ha realizado con éxito
+          </h5>
+          <p class="card-text">Monto transferido</p>
+          <h5 class="card-title">{{ transfer?.amount | number: '1.2-2' }}</h5>
+          <p class="card-text pt-2">
+              A la {{ transfer?.account_type_name }} <strong>Nro. {{ transfer?.account_number }}</strong><br>
+              {{ transfer?.bank_name }} de {{ transfer?.contact_name | uppercase }}
+          </p>
+          <p class="py-3">
+            Enviamos una copia del comprobante de transferencia a {{ transfer?.email }}
+          </p>
+          <p class="py-2">
+            Referencia: <strong>{{ transfer?.id }}</strong> <br>
+            Fecha: {{ transfer?.created_at | date: 'dd/MM/yyyy' }}
+          </p>
+
+          <a class="btn btn-primary" (click)="anotherTransfer()">Otra transferencia</a>
+        </div>
+      </div>
+
+    </div>
+
+
+</div>

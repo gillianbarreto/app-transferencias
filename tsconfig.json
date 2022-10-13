@@ -1,0 +1,41 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "@core": ["src/app/core"],
+      "@core/*": ["src/app/core/*"],
+      "@models": ["src/app/models"],
+      "@models/*": ["src/app/models/*"],
+      "@guards": ["src/app/guards"],
+      "@guards/*": ["src/app/guards/*"],
+      "@services": ["src/app/services"],
+      "@services/*": ["src/app/services/*"],
+      "@shared": ["src/app/shared"],
+      "@shared/*": ["src/app/shared/*"],
+      "@utils": ["src/app/shared/utils"],
+      "@utils/*": ["src/app/shared/utils/*"],
+      "@environment": ["src/environments"],
+      "@environment/*": ["src/environments/*"],
+      "@mocks": ["src/test/mocks"],
+      "@mocks/*": ["src/test/mocks/*"]
+    }
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
+}

@@ -1,0 +1,73 @@
+<div class="form-contacts w-90 w-xs-100 px-3 m-auto">
+  <form class="row g-3 shadow p-md-4" novalidate [formGroup]="formContact">
+
+    <div class="col-md-6">
+      <label for="rut" class="form-label">RUT</label>
+      <input type="text" class="form-control" id="rut" formControlName="rut" placeholder="Ej. 11111111-1">
+      <app-show-errors [control]='formContact.controls["rut"]'></app-show-errors>
+    </div>
+
+    <div class="col-md-6">
+      <label for="fullname" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="fullname" formControlName="fullname">
+      <app-show-errors [control]='formContact.controls["fullname"]'></app-show-errors>
+    </div>
+
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+      <app-show-errors [control]='formContact.controls["email"]'></app-show-errors>
+    </div>
+
+    <div class="col-md-6">
+      <label for="phone" class="form-label">Teléfono</label>
+      <input type="text" class="form-control" id="phone" formControlName="phone">
+      <app-show-errors [control]='formContact.controls["phone"]'></app-show-errors>
+    </div>
+
+    <div class="col-md-6">
+      <label for="bank_id" class="form-label">Banco</label>
+      <select id="bank_id" formControlName="bank_id" class="form-select">
+        <option class="text-muted" selected>Selecciona...</option>
+        <option *ngFor="let bank of banksList" value="{{ bank.id }}">
+          {{ bank.name }}
+        </option>
+      </select>
+      <app-show-errors [control]='formContact.controls["bank_id"]'></app-show-errors>
+    </div>
+
+    <div class="col-md-6">
+      <label for="account_type_id" class="form-label">Tipo de Cuenta</label>
+      <select id="account_type_id" formControlName="account_type_id" class="form-select">
+        <option class="text-muted" selected>Selecciona...</option>
+        <option *ngFor="let accountType of accountsTypeList" value="{{ accountType.account_type_id }}">
+          {{ accountType.name }}
+        </option>
+      </select>
+      <app-show-errors [control]='formContact.controls["account_type_id"]'></app-show-errors>
+    </div>
+
+    <div class="col-md-6">
+      <label for="account_number" class="form-label">Número de cuenta</label>
+      <input type="text" class="form-control" id="account_number" formControlName="account_number">
+      <app-show-errors [control]='formContact.controls["account_number"]'></app-show-errors>
+    </div>
+
+    <div class="col-md-6">
+      <label for="alias" class="form-label">Alias</label>
+      <input type="text" class="form-control" id="alias" formControlName="alias">
+      <app-show-errors [control]='formContact.controls["alias"]'></app-show-errors>
+    </div>
+
+    <div class="col-12 pt-4 my-3 text-end">
+      <button type="button" class="mx-2 btn btn-outline-secondary" (click)="showList()">
+        Cancelar
+      </button>
+      <button type="submit" class="btn btn-primary" [disabled]="!formContact.valid" (click)="addContact()">
+        Guardar
+      </button>
+    </div>
+  </form>
+</div>
+
+<app-alert *ngIf="alertMessage" [message]="alertMessage" [type]="alertType"></app-alert>

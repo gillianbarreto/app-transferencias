@@ -1,0 +1,26 @@
+<div class="table-responsive">
+  <table class="table table-striped table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">RUT</th>
+        <th scope="col">Banco</th>
+        <th scope="col">Nro.Cuenta</th>
+        <th scope="col">Alias</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contactsList">
+        <td>{{ contact.fullname }}</td>
+        <td>{{ contact.rut }}</td>
+        <td>{{ contact.bank_name }} </td>
+        <td>{{ contact.accounts_type.name }}</td>
+        <td>{{ contact.alias }}</td>
+      </tr>
+
+      <tr *ngIf="!contactsList?.length">
+        <td colspan="6" class="text-center py-3">No tienes contactos aún</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,51 @@
+<div class="form-add-transfer w-75 w-xs-100 px-3 m-auto">
+  <form class="row g-3 shadow p-md-4" novalidate [formGroup]="formTransfer">
+
+    <div class="col-md-8">
+      <label for="contact_id" class="form-label">Destinatario</label>
+      <select id="contact_id" class="form-select" formControlName="contact_id" (change)="onSelectContact($event.target.value)">
+        <option class="text-muted" value="" selected>Selecciona...</option>
+        <option *ngFor="let contact of contactsList; let i = index" value="{{ i }}">
+          {{ contact.fullname }}
+        </option>
+      </select>
+      <app-show-errors [control]='formTransfer.controls["contact_id"]'></app-show-errors>
+    </div>
+    <div class="col-md-2 d-flex align-items-end">
+      <span id="addContact" class="badge bg-primary rounded-pill p-2"  (click)="addNewContact()">
+        <i class="bi bi-person-plus-fill"></i>
+      </span>
+    </div>
+
+    <div *ngIf="selectedContact" class="col-md-8">
+      <ul class="list-unstyled m-3">
+        <li>{{ selectedContact?.fullname }}</li>
+        <li>{{ selectedContact?.rut }}</li>
+        <li>{{ selectedContact?.email }}</li>
+        <li>{{ selectedContact?.bank_name }}</li>
+        <li>{{ selectedContact?.accounts_type.name }}</li>
+        <li>{{ selectedContact?.account_number }}</li>
+      </ul>
+    </div>
+
+    <div class="col-md-6">
+      <label for="message" class="form-label">Descripción</label>
+      <input type="text" class="form-control" id="message" formControlName="message">
+      <app-show-errors [control]='formTransfer.controls["message"]'></app-show-errors>
+    </div>
+
+    <div class="col-md-5">
+      <label for="amount" class="form-label">Monto</label>
+      <input type="text" class="form-control" id="amount" formControlName="amount">
+      <app-show-errors [control]='formTransfer.controls["amount"]'></app-show-errors>
+    </div>
+
+    <div class="col-12 pt-4 my-3">
+      <button type="submit" class="btn btn-primary" [disabled]="!formTransfer.valid" (click)="sendTransfer()">
+        Transferir
+      </button>
+    </div>
+  </form>
+</div>
+
+<app-alert *ngIf="alertMessage" [message]="alertMessage" [type]="alertType"></app-alert>

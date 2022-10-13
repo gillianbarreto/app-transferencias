@@ -1,0 +1,11 @@
+.btn {
+  border-radius: 40px;
+  padding: 10px 50px;
+}
+
+.btn-primary {
+
+  &:hover {
+    font-weight: 700;
+  }
+}

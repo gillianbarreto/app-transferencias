@@ -1,0 +1,38 @@
+<header>
+  <div class="px-3 py-2 bg-primary text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a [routerLink]="['/home']" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+          <i class="bi bi-bank2 logo"></i>
+        </a>
+        <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
+          <li>
+            <a [routerLink]="['/contacts']" class="nav-link text-white">
+              <i class="bi bi-person-square"></i>
+              Destinatarios
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/transfers']" class="nav-link text-white">
+              <i class="bi bi-cash-stack"></i>
+              Transferir
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/history']" class="nav-link text-white">
+              <i class="bi bi-clock-history"></i>
+              Historial
+            </a>
+          </li>
+          <li>
+            <a [routerLink]="['/']" class="nav-link text-white">
+              <i class="bi bi-box-arrow-right"></i>
+              Salir
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</header>

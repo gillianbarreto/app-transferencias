@@ -1,0 +1,13 @@
+<div class="wrapper">
+  <app-header></app-header>
+
+  <ng-container *ngIf="showTransferForm">
+    <h2 class="my-3 py-3 text-center">Nueva Transferencia</h2>
+    <app-add-transfer (success)="showTransferSuccess($event)"></app-add-transfer>
+  </ng-container>
+
+  <ng-container *ngIf="!showTransferForm">
+    <app-transfer-success [transfer]="transferSuccess" (another)="anotherTransfer()"></app-transfer-success>
+  </ng-container>
+
+</div>
